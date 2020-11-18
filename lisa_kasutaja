@@ -48,3 +48,6 @@ else
 	echo "Probleem kasutaja $kasutajanimi lisamisega"
 	echo "Probleemi kood on $?" 
 fi
+
+
+#
