@@ -1,0 +1,25 @@
+#!/bin/bash
+
+clear
+
+#kasutajate lisamise skript, mis lisab kasutajanimed failist.
+
+if [ $# -ne 1 ]; then
+    echo "see skript $0 on käivitatud $# -ga  parameetritega."
+    ##echo "Lisan kasutajad failist kasutajad"
+    echo "Skripti käivitamiseks juhend: Käivita see skript ühe parameetriga!"
+    echo "Näiteks nii:  $0 failkasutajanimedega"
+else
+  kasutajad=$1
+  if [ -f $kasutajad -a -r $kasutajad ]; then
+    echo "fail $kasutajad on korras"
+    for nimi in $(cat $kasutajad)
+    do
+      echo "Loon kasutaja $nimi süsteemi! Kasutades skripti lisa_kasutaja."
+      sh lisa_kasutaja $nimi
+    done
+  else
+    echo "probleem failiga $kasutajad"
+  fi
+fi
+echo "Korras!!??"
